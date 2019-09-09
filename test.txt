@@ -1,0 +1,2 @@
+this is a test file. If it is succesfull then hopefully we can send a image.
+This file is being send by the server to the client.
