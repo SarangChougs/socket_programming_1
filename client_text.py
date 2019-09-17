@@ -3,6 +3,7 @@
 #Importing the required library
 import socket
 
+print("This is Client")
 #Create the socket
 s = socket.socket()
 
@@ -13,8 +14,15 @@ ip = socket.gethostname()
 #connect to the server
 s.connect((ip,port))
 
-#print the data
-print(s.recv(1024))
-
+try:
+    while True:
+        #receiving the data from server
+        print( "(server)>>" + s.recv(1024).decode())
+        #sending the data to the server
+        mssg = input("Enter a message to send to server>>")
+        s.sendall(bytes(mssg,'UTF-8'))
+except Exception as e:
+    print("Connection terminated by server...Bye")
+    s.close()
 #close the connection
 s.close()
