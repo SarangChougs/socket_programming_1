@@ -22,7 +22,7 @@ try:
         mssg = input("Enter a message to send to server>>")
         s.sendall(bytes(mssg,'UTF-8'))
 except Exception as e:
-    print("Connection terminated by server...Bye")
+    print("Connection terminated by server.")
     s.close()
 #close the connection
 s.close()

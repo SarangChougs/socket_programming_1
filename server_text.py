@@ -27,6 +27,7 @@ while True:
     mssg = input("Enter the message to send to client>>")
     #get out of the loop if message is bye
     if(mssg == 'bye'):
+        c.sendall(bytes('bye','UTF-8'))
         print("Thank you for joining the connection.\n Connection is closed.")
         break
     #sending the message
@@ -34,5 +35,5 @@ while True:
     #receving the message
     print(str(addr) + ">>" + c.recv(1024).decode())
 
-#close the connection from the client
+#close the connection
 c.close()
