@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html class="client-js" dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>PyQt5 Tutorial: A Window Application with File IO - dftwiki</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PyQt5_Tutorial:_A_Window_Application_with_File_IO","wgTitle":"PyQt5 Tutorial: A Window Application with File IO","wgCurRevisionId":33937,"wgRevisionId":33937,"wgArticleId":5126,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["PyQt5","Python","Qt5","C++"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"PyQt5_Tutorial:_A_Window_Application_with_File_IO","wgRelevantArticleId":5126,"wgRequestId":"fa4b7331feaa22742068b6dc","wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":false,"preview":false,"publish":false}});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.pygments":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.options@0bhc5ha",function($,jQuery,require,module){mw.user.options.set([]);});mw.loader.implement("user.tokens@0jugyyq",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/
+
+});mw.loader.load(["site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/load_002.css">
+<script async="" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/load.php"></script>
+<style>
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:solid 1px #aaa;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:solid 1px #aaa;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4c59a6;color:#fff}.suggestions-special .special-label{color:#808080;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c0c0c0}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	#toc.tochidden,.toc.tochidden,.toctoggle{display:none}}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/load.css">
+<meta name="generator" content="MediaWiki 1.30.0">
+<link rel="shortcut icon" href="http://www.science.smith.edu/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.science.smith.edu/dftwiki/opensearch_desc.php" title="dftwiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://www.science.smith.edu/dftwiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="dftwiki Atom feed" href="http://www.science.smith.edu/dftwiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.min.js"></script><![endif]-->
+<script src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/load_002.php"></script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-PyQt5_Tutorial_A_Window_Application_with_File_IO rootpage-PyQt5_Tutorial_A_Window_Application_with_File_IO skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators mw-body-content">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">PyQt5 Tutorial: A Window Application with File IO</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub" class="noprint">From dftwiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div class="mw-parser-output"><p><a href="http://www.science.smith.edu/dftwiki/index.php/User:Thiebaut" title="User:Thiebaut">D. Thiebaut</a> (<a href="http://www.science.smith.edu/dftwiki/index.php/User_talk:Thiebaut" title="User talk:Thiebaut">talk</a>) 09:04, 31 July 2018 (EDT)
+</p>
+<hr>
+<p><br>
+</p>
+<div style="background-color: #ccccff; border: 1px solid #808000; padding: 5px; {{border-radius|32px 32px 32px 32px}}">
+<p>In this tutorial we create a simple application with a Graphical User Interface (GUI) implemented with Qt5's <b>Qt Creator</b>,
+ and code the whole application as a simple Model-View-Controller 
+example (MVC) implemented in Python Version 3.5.   The application uses a
+ dialog to browse for a file, opens it, displays it contents in a 
+text-edit widget, allows the user to edit the contents in the same text 
+edit, and finally gives the user the option of saving the file to a new 
+copy with a ".bak" suffix.   We use PyInstaller to create an app that is
+ self-contained and can be distributed to others for execution.
+</p>
+</div>
+<p><br>
+</p>
+<div id="toc" class="toc"><div class="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a role="button" tabindex="0" class="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Create_A_Window_UI"><span class="tocnumber">1</span> <span class="toctext">Create A Window UI</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Add_Widgets"><span class="tocnumber">1.1</span> <span class="toctext">Add Widgets</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Connect_Signals_to_Slots"><span class="tocnumber">1.2</span> <span class="toctext">Connect Signals to Slots</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Conversion_of_the_UI_file_into_a_Python_Class"><span class="tocnumber">1.3</span> <span class="toctext">Conversion of the UI file into a Python Class</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Testing_the_PyQt_script"><span class="tocnumber">1.4</span> <span class="toctext">Testing the PyQt script</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Adding_Python_Functionality_with_a_Model-View-Controller_.28MVC.29_paradigm"><span class="tocnumber">2</span> <span class="toctext">Adding Python Functionality with a Model-View-Controller (MVC) paradigm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#The_Model-View-Controller"><span class="tocnumber">2.1</span> <span class="toctext">The Model-View-Controller</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#A_Skeleton_View_Module"><span class="tocnumber">2.2</span> <span class="toctext">A Skeleton View Module</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#The_Model"><span class="tocnumber">3</span> <span class="toctext">The Model</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Revised_View_Module"><span class="tocnumber">4</span> <span class="toctext">Revised View Module</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Testing"><span class="tocnumber">5</span> <span class="toctext">Testing</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Deploying"><span class="tocnumber">6</span> <span class="toctext">Deploying</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Create_A_Window_UI">Create A Window UI</span></h1>
+<ul><li> Qt Creator</li>
+<li> New File or Project</li>
+<li> Qt</li>
+<li> Qt Designer Form</li>
+<li> Main Window</li>
+<li> mainwindow.ui</li>
+<li> Pick a directory to host the project</li>
+<li> Accept defaults</li>
+<li> Start Editing the UI</li></ul>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_1.png" class="image"><img alt="PyQt5 2 1.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/700px-PyQt5_2_1.png" srcset="/dftwiki/images/thumb/c/cc/PyQt5_2_1.png/1050px-PyQt5_2_1.png 1.5x, /dftwiki/images/c/cc/PyQt5_2_1.png 2x" width="700" height="411"></a></div></div>
+<h2><span class="mw-headline" id="Add_Widgets">Add Widgets</span></h2>
+<ul><li> Add a QTextBrowser and put it at the bottom of the window.  
+Rename it debugTextBrowser.  We will use it to display debugging 
+information.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_2.png" class="image"><img alt="PyQt5 2 2.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/700px-PyQt5_2_2.png" srcset="/dftwiki/images/4/4d/PyQt5_2_2.png 1.5x" width="700" height="423"></a></div></div>
+<p><br>
+</p>
+<ul><li> Add a QLabel in the top right corner of the window.  Double 
+click on it to edit its caption, and enter "My Python Application" (or 
+another name of your choice).   </li></ul>
+<dl><dd><dl><dd><ul><li> In the lower right corner of the Qt-Creator window, in the QLabel properties, locate the <b>Text Wrap</b> option and click it.  This will make the text of your label wrap in the space allocated.</li>
+<li> In the <b>font</b> area of the QLabel properties, locate the <b>Point Size</b> and set it to 20.  Locate the <b>Bold</b> button and clic it.</li>
+<li> In the same properties area, locate the <b>maximumSize</b> area, and set the <b>Width</b> to 130 (or some width that will allow all the words of your caption to appear without truncation.</li></ul></dd></dl></dd></dl>
+<ul><li> Add a <b>QFrame</b> in the space to the right of the label you just created.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_3.png" class="image"><img alt="PyQt5 2 3.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_3.png" srcset="/dftwiki/images/e/e9/PyQt5_2_3.png 1.5x" width="500" height="386"></a></div></div>
+<p><br>
+</p>
+<ul><li> Add a QLabel, a QLineEdit, and a QPushButton inside the QFrame 
+you just added.  Click on the label to set its caption to "File Name."  
+Click on the push-button to set its caption to "Browse."</li>
+<li> Select the label, lineEdit, and pushButton and click on the 
+Horizontal Layout button (3 vertical blue bars) to force them to stay 
+aligned horizontally, next to each other.  A red layout box will 
+encapsulate the three widget.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_4.png" class="image"><img alt="PyQt5 2 4.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_4.png" srcset="/dftwiki/images/2/21/PyQt5_2_4.png 1.5x" width="500" height="412"></a></div></div>
+<p><br>
+</p>
+<ul><li> Add a QTextEdit inside the frame, below the horizontal layout just created.</li>
+<li> Add a QPushButton at the bottom of the frame.  Place a horizontal spacer next to it, on the left.</li>
+<li> Click on the QFrame that contains the 6 widgets just added, and click on the grid layout icon, at the top of Qt Creator.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_5.png" class="image"><img alt="PyQt5 2 5.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_5.png" srcset="/dftwiki/images/8/85/PyQt5_2_5.png 1.5x" width="500" height="428"></a></div></div>
+<p><br>
+</p>
+<ul><li> Select the frame and the label to its left and click on the <b>Horizontal Layout</b> icon.  This packages them in a horizontal red rectangle.  </li>
+<li> Click on this red rectangle to select it, and click on the bottom text-browser to select it as well. Click on the <b>Layout Vertical with Splitter</b> icon to join the two selected rectangular areas.</li>
+<li> Click on the main window, the largest block in the design window, and click on the <b>Grid Layout</b> icon.  The main window is now ready with its geometry.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_6.png" class="image"><img alt="PyQt5 2 6.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_6.png" srcset="/dftwiki/images/7/78/PyQt5_2_6.png 1.5x" width="500" height="386"></a></div></div>
+<p><br>
+<br>
+</p>
+<h2><span class="mw-headline" id="Connect_Signals_to_Slots">Connect Signals to Slots</span></h2>
+<p><br>
+</p>
+<ul><li> Switch to the Signals &amp; Slots editing mode by clicking on the <b>Edit Signals/Slots</b> icon at the top of the Qt Creator window.</li>
+<li> Click on the <b>Browse</b> push-button and drag the red line to the main-window background.  A "ground" symbol should appear.  Release the mouse.  In the <b>Configure Connection</b> window that appears, click on <b>clicked()</b> in the left pane.  </li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_7.png" class="image"><img alt="PyQt5 2 7.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_7.png" srcset="/dftwiki/images/b/b1/PyQt5_2_7.png 1.5x" width="500" height="435"></a></div></div>
+<p><br>
+</p>
+<ul><li> Click the "Edit" button under the right pane to create a new slot.</li>
+<li> In the new window that appears, under the slot pane, click on the <b>+</b> button to add a slot, and replace the default <b>slot1()</b> by <b>browseSlot()</b>.   Click OK.  Select the <b>clicked</b> signal and the <b>browseSlot()</b> slot, and click <b>Ok</b>.  You should now have a red line linking the Browse button to the main window.</li>
+<li> Similarly, connect the <b>clicked</b> signal of the "Write Doc" button to a new slot called <b>writeDocSlot()</b>.</li>
+<li> Similarly, connect the <b>return Pressed</b> signal of the QLineEdit widget to the main window, to a slot you will create and name <b>returnedPressedSlot()</b>.   This slot will be triggered when you enter a new file name in the line edit, and press Enter to validate it.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_8.png" class="image"><img alt="PyQt5 2 8.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_8.png" srcset="/dftwiki/images/2/2f/PyQt5_2_8.png 1.5x" width="500" height="425"></a></div></div>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Conversion_of_the_UI_file_into_a_Python_Class">Conversion of the UI file into a Python Class</span></h2>
+<p><br>
+</p>
+<ul><li> PyQt5 provides a utility to convert the ui file (mainwindow.ui)
+ into a Python script that users PyQt5.  We will use it to generate the 
+script, and make a few edits.</li>
+<li> Open a terminal window, travel to the directory where your UI file is saved, and type the following command:</li></ul>
+<pre>pyuic5 -x mainwindow.ui -o mainwindow.py
+
+</pre>
+<ul><li> Now use your favorite editor, open the mainwindow.py file, and 
+make the changes highlighted in the code below (only the sections that 
+need editing are shown).  Your code will likely be slightly different 
+from the one shown here as the order in which you organized your UI 
+might be different from the one adopted here.</li></ul>
+<p><br>
+</p>
+<dl><dd><dl><dd><div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Form implementation generated from reading ui file 'mainwindow.ui'</span>
+<span class="c1">#</span>
+<span class="c1"># Created by: PyQt5 UI code generator 5.10.1</span>
+<span class="c1">#</span>
+<span class="c1"># WARNING! All changes made in this file will be lost!</span>
+
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QObject</span><span class="p">,</span> <span class="n">pyqtSlot</span>
+</span>
+<span class="hll"><span class="k">class</span> <span class="nc">Ui_MainWindow</span><span class="p">(</span> <span class="n">QObject</span> <span class="p">):</span>
+</span>
+        <span class="o">.</span>
+        <span class="o">.</span>
+        <span class="o">.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"statusbar"</span><span class="p">)</span>
+        <span class="n">MainWindow</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">retranslateUi</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">)</span>
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">browseSlot</span><span class="p">)</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton_2</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">writeDocSlot</span><span class="p">)</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">returnPressed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">returnPressedSlot</span><span class="p">)</span>
+</span>        <span class="n">QtCore</span><span class="o">.</span><span class="n">QMetaObject</span><span class="o">.</span><span class="n">connectSlotsByName</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">retranslateUi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">MainWindow</span><span class="p">):</span>
+        <span class="n">_translate</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QCoreApplication</span><span class="o">.</span><span class="n">translate</span>
+        <span class="n">MainWindow</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"MainWindow"</span><span class="p">,</span> <span class="s2">"MainWindow"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"MainWindow"</span><span class="p">,</span> <span class="s2">"My Python Application"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label_2</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"MainWindow"</span><span class="p">,</span> <span class="s2">"File Name"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"MainWindow"</span><span class="p">,</span> <span class="s2">"Browse"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton_2</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"MainWindow"</span><span class="p">,</span> <span class="s2">"Write Doc"</span><span class="p">))</span>
+
+
+<span class="hll">    <span class="nd">@pyqtSlot</span><span class="p">(</span> <span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">returnPressedSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+</span><span class="hll">        <span class="k">pass</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="nd">@pyqtSlot</span><span class="p">(</span> <span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">writeDocSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+</span><span class="hll">        <span class="k">pass</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="nd">@pyqtSlot</span><span class="p">(</span> <span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">browseSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+</span><span class="hll">        <span class="k">pass</span>
+</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">MainWindow</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">()</span>
+    <span class="n">ui</span> <span class="o">=</span> <span class="n">Ui_MainWindow</span><span class="p">()</span>
+    <span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">)</span>
+    <span class="n">MainWindow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div></dd></dl></dd></dl>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Testing_the_PyQt_script">Testing the PyQt script</span></h2>
+<p><br>
+We can now test our Python script.  Use the Python interpreter for which
+ you have installed PyQt5 (in our case Python 3.5), and launch the 
+script from the command line, or from Idle 3.5 in which you will have 
+loaded the mainwindow.py program:
+</p>
+<pre>python3.5 mainwindow.py
+
+</pre>
+<p>If everything was done following the steps above, you should be able to see your app:
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_9.png" class="image"><img alt="PyQt5 2 9.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_9.png" srcset="/dftwiki/images/d/dd/PyQt5_2_9.png 1.5x" width="500" height="393"></a></div></div>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="Adding_Python_Functionality_with_a_Model-View-Controller_.28MVC.29_paradigm">Adding Python Functionality with a Model-View-Controller (MVC) paradigm</span></h1>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="The_Model-View-Controller">The Model-View-Controller</span></h2>
+<p><br>
+The idea behind the Model-View-Controller paradigm is that the graphical
+ user interface (UI) should be separate from the logic of the 
+application, with very well defined links between the two.   This makes 
+it much easier to modify the logic of the model without having to change
+ any code relating to the UI.  Similarly, editing code relating to how 
+the UI operates in response to user input should not influence the code 
+controlling the logic of the model.
+<br>
+</p>
+<h2><span class="mw-headline" id="A_Skeleton_View_Module">A Skeleton View Module</span></h2>
+<p><br>
+We are going to subclass the mainwindow.py file we have just created and
+ add code to the subclass.  The reason we will do this is simple. If at 
+some point you need to modify the UI and either add new signals/slots 
+connections, or add options to the menu system, or particular features, 
+you will need to edit the UI file with Qt Creator, and convert the ui to
+ python using the <b>pyuic5</b> command.  Any additions you would have made to <b>mainwindow.py</b> would be lost with the new conversion.
+</p><p>So we will create a new python script with an editor or with Idle, and create a subclass of <b>Ui_MainWindow</b> which is the class defined in mainwindow.py.  We will call our new script <b>MyApp.py</b>.   This file will contain the class <b>MainWindowUIClass</b> which will inherit from <b>Ui_MainWindow</b>.
+<br>
+</p>
+<dl><dd><dl><dd><div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># MyApp.py</span>
+<span class="c1"># D. Thiebaut</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QObject</span><span class="p">,</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">mainwindow</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">class</span> <span class="nc">MainWindowUIClass</span><span class="p">(</span> <span class="n">Ui_MainWindow</span> <span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">'''Initialize the super class</span>
+<span class="sd">        '''</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">setupUi</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">MW</span> <span class="p">):</span>
+        <span class="sd">''' Setup the UI of the super class, and add here code</span>
+<span class="sd">        that relates to the way we want our UI to operate.</span>
+<span class="sd">        '''</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span> <span class="n">MW</span> <span class="p">)</span>
+
+        <span class="c1"># close the lower part of the splitter to hide the </span>
+        <span class="c1"># debug window under normal operations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">splitter</span><span class="o">.</span><span class="n">setSizes</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">debugPrint</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">msg</span> <span class="p">):</span>
+        <span class="sd">'''Print the message in the text edit at the bottom of the</span>
+<span class="sd">        horizontal splitter.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugTextBrowser</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">msg</span> <span class="p">)</span>
+
+    <span class="c1"># slot</span>
+    <span class="k">def</span> <span class="nf">returnPressedSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">''' Called when the user enters a string in the line edit and</span>
+<span class="sd">        presses the ENTER key.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugPrint</span><span class="p">(</span> <span class="s2">"RETURN key pressed in LineEdit widget"</span> <span class="p">)</span>
+
+    <span class="c1"># slot</span>
+    <span class="k">def</span> <span class="nf">writeDocSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">''' Called when the user presses the Write-Doc button.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugPrint</span><span class="p">(</span> <span class="s2">"Write-Doc button pressed"</span> <span class="p">)</span>
+
+    <span class="c1"># slot</span>
+    <span class="k">def</span> <span class="nf">browseSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">''' Called when the user presses the Browse button</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugPrint</span><span class="p">(</span> <span class="s2">"Browse button pressed"</span> <span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    This is the MAIN ENTRY POINT of our application.  The code at the end</span>
+<span class="sd">    of the mainwindow.py script will not be executed, since this script is now</span>
+<span class="sd">    our main program.   We have simply copied the code from mainwindow.py here</span>
+<span class="sd">    since it was automatically generated by '''pyuic5'''.</span>
+
+<span class="sd">    """</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">MainWindow</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">()</span>
+    <span class="n">ui</span> <span class="o">=</span> <span class="n">MainWindowUIClass</span><span class="p">()</span>
+    <span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">)</span>
+    <span class="n">MainWindow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div></dd></dl></dd></dl>
+<p><br>
+</p>
+<ul><li> Run the program you just created, and click on the two buttons a
+ few times.  Enter some string in the line edit, and press ENTER.</li>
+<li> Locate the tiny circle at the bottom of the window, which 
+represents the splitter, and lift it to reveal the text-browser.  You 
+should see some debug messages that were generated when you clicked the 
+buttons.  Click some of the buttons or press ENTER in the line-edit 
+again to see the debug messages appear.</li></ul>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_10.png" class="image"><img alt="PyQt5 2 10.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_10.png" srcset="/dftwiki/images/2/2a/PyQt5_2_10.png 1.5x" width="500" height="393"></a></div></div>
+<p><br>
+</p>
+<ul><li> This tests the functionality of our View component.  We will 
+need to add some code to finish the app, but for right now we have a 
+good start for our app, and need to define the logic of our model, 
+implement it, and connect model and view together.</li>
+<li> In the next section, we present our model, and what functionality 
+we want to implement, and show the final code for the View and Model 
+scripts.</li></ul>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="The_Model">The Model</span></h1>
+<p><br>
+We create a simple model with the following logic:
+</p>
+<ol><li> Let the user pick a file name, either while browsing the file system, or by specifying a file path.</li>
+<li> Verify that the file is valid and can be opened.  The application assumes (but not test) that the file is a text file.</li>
+<li> Display the contents of the file in the TextEdit widget.</li>
+<li> Allow the user to make changes to the contents of the TextEdit.</li>
+<li> Allow the user to write the changes to a new file which has the same name as the original file, and suffixed with ".bak."</li></ol>
+<p><br>
+</p>
+<dl><dd><dl><dd><div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># model.py</span>
+<span class="c1"># D. Thiebaut</span>
+<span class="c1"># This is the model part of the Model-View-Controller</span>
+<span class="c1"># The class holds the name of a text file and its contents.</span>
+<span class="c1"># Both the name and the contents can be modified in the GUI</span>
+<span class="c1"># and updated through methods of this model.</span>
+<span class="c1"># </span>
+
+<span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        Initializes the two members the class holds:</span>
+<span class="sd">        the file name and its contents.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fileContent</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        returns True if the file exists and can be</span>
+<span class="sd">        opened.  Returns False otherwise.</span>
+<span class="sd">        '''</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span> <span class="n">fileName</span><span class="p">,</span> <span class="s1">'r'</span> <span class="p">)</span>
+            <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">setFileName</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        sets the member fileName to the value of the argument</span>
+<span class="sd">        if the file exists.  Otherwise resets both the filename</span>
+<span class="sd">        and file contents members.</span>
+<span class="sd">        '''</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isValid</span><span class="p">(</span> <span class="n">fileName</span> <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="o">=</span> <span class="n">fileName</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fileContents</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span> <span class="n">fileName</span><span class="p">,</span> <span class="s1">'r'</span> <span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fileContents</span> <span class="o">=</span> <span class="s2">""</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="o">=</span> <span class="s2">""</span>
+            
+    <span class="k">def</span> <span class="nf">getFileName</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        Returns the name of the file name member.</span>
+<span class="sd">        '''</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span>
+
+    <span class="k">def</span> <span class="nf">getFileContents</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        Returns the contents of the file if it exists, otherwise</span>
+<span class="sd">        returns an empty string.</span>
+<span class="sd">        '''</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fileContents</span>
+    
+    <span class="k">def</span> <span class="nf">writeDoc</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">text</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        Writes the string that is passed as argument to a</span>
+<span class="sd">        a text file with name equal to the name of the file</span>
+<span class="sd">        that was read, plus the suffix ".bak"</span>
+<span class="sd">        '''</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isValid</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="p">):</span>
+            <span class="n">fileName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="o">+</span> <span class="s2">".bak"</span>
+            <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span> <span class="n">fileName</span><span class="p">,</span> <span class="s1">'w'</span> <span class="p">)</span>
+            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="n">text</span> <span class="p">)</span>
+            <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div></dd></dl></dd></dl>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="Revised_View_Module">Revised View Module</span></h1>
+<p><br>
+We update the <b>MyApp.py</b> module with interactions with the model.
+</p><p>A File-Browsing dialog is added, as well as a Warning dialog if 
+the file specified in the Line-Edit is invalid.  A member variable is 
+added to hold a reference to the model, which is implemented by the 
+class Model, in <b>model.py</b>.
+</p><p><br>
+</p>
+<dl><dd><dl><dd><div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># MyApp.py</span>
+<span class="c1"># D. Thiebaut</span>
+<span class="c1"># PyQt5 Application</span>
+<span class="c1"># Editable UI version of the MVC application.</span>
+<span class="c1"># Inherits from the Ui_MainWindow class defined in mainwindow.py.</span>
+<span class="c1"># Provides functionality to the 3 interactive widgets (2 push-buttons,</span>
+<span class="c1"># and 1 line-edit).</span>
+<span class="c1"># The class maintains a reference to the model that implements the logic</span>
+<span class="c1"># of the app.  The model is defined in class Model, in model.py.</span>
+
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QObject</span><span class="p">,</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">mainwindow</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="k">class</span> <span class="nc">MainWindowUIClass</span><span class="p">(</span> <span class="n">Ui_MainWindow</span> <span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">'''Initialize the super class</span>
+<span class="sd">        '''</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">setupUi</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">MW</span> <span class="p">):</span>
+        <span class="sd">''' Setup the UI of the super class, and add here code</span>
+<span class="sd">        that relates to the way we want our UI to operate.</span>
+<span class="sd">        '''</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span> <span class="n">MW</span> <span class="p">)</span>
+
+        <span class="c1"># close the lower part of the splitter to hide the </span>
+        <span class="c1"># debug window under normal operations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">splitter</span><span class="o">.</span><span class="n">setSizes</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">debugPrint</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">msg</span> <span class="p">):</span>
+        <span class="sd">'''Print the message in the text edit at the bottom of the</span>
+<span class="sd">        horizontal splitter.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugTextBrowser</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">msg</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">refreshAll</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        Updates the widgets whenever an interaction happens.</span>
+<span class="sd">        Typically some interaction takes place, the UI responds,</span>
+<span class="sd">        and informs the model of the change.  Then this method</span>
+<span class="sd">        is called, pulling from the model information that is</span>
+<span class="sd">        updated in the GUI.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getFileName</span><span class="p">()</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textEdit</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getFileContents</span><span class="p">()</span> <span class="p">)</span>
+    
+    <span class="c1"># slot</span>
+    <span class="k">def</span> <span class="nf">returnPressedSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">''' Called when the user enters a string in the line edit and</span>
+<span class="sd">        presses the ENTER key.</span>
+<span class="sd">        '''</span>
+        <span class="n">fileName</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">isValid</span><span class="p">(</span> <span class="n">fileName</span> <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">setFileName</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refreshAll</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMessageBox</span><span class="p">()</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"Invalid file name!</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">fileName</span> <span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Warning</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">setStandardButtons</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Ok</span>
+                                 <span class="o">|</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Cancel</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">setDefaultButton</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMessageBox</span><span class="o">.</span><span class="n">Cancel</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span> <span class="s2">""</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refreshAll</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">debugPrint</span><span class="p">(</span> <span class="s2">"Invalid file specified: "</span> <span class="o">+</span> <span class="n">fileName</span>  <span class="p">)</span>
+
+    <span class="c1"># slot</span>
+    <span class="k">def</span> <span class="nf">writeDocSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">''' Called when the user presses the Write-Doc button.</span>
+<span class="sd">        '''</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">textEdit</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">()</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugPrint</span><span class="p">(</span> <span class="s2">"WriteDoc button pressed!"</span> <span class="p">)</span>
+        
+    <span class="c1"># slot</span>
+    <span class="k">def</span> <span class="nf">browseSlot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">''' Called when the user presses the Browse button</span>
+<span class="sd">        '''</span>
+        <span class="c1">#self.debugPrint( "Browse button pressed" )</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
+        <span class="n">options</span> <span class="o">|=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">DontUseNativeDialog</span>
+        <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span>
+                        <span class="bp">None</span><span class="p">,</span>
+                        <span class="s2">"QFileDialog.getOpenFileName()"</span><span class="p">,</span>
+                        <span class="s2">""</span><span class="p">,</span>
+                        <span class="s2">"All Files (*);;Python Files (*.py)"</span><span class="p">,</span>
+                        <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fileName</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">debugPrint</span><span class="p">(</span> <span class="s2">"setting file name: "</span> <span class="o">+</span> <span class="n">fileName</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">setFileName</span><span class="p">(</span> <span class="n">fileName</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refreshAll</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    This is the MAIN ENTRY POINT of our application.  The code at the end</span>
+<span class="sd">    of the mainwindow.py script will not be executed, since this script is now</span>
+<span class="sd">    our main program.   We have simply copied the code from mainwindow.py here</span>
+<span class="sd">    since it was automatically generated by '''pyuic5'''.</span>
+
+<span class="sd">    """</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">MainWindow</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">()</span>
+    <span class="n">ui</span> <span class="o">=</span> <span class="n">MainWindowUIClass</span><span class="p">()</span>
+    <span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">)</span>
+    <span class="n">MainWindow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div></dd></dl></dd></dl>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="Testing">Testing</span></h1>
+<p><br>
+</p>
+<ul><li> We are ready to test our application, either by running MyApp.py directly from Idle, or by launching it from the prompt:</li></ul>
+<pre>python3.5 MyApp.py
+
+</pre>
+<ul><li> Browse for a text file of your choice, verify that its contents appear in the text-edit, make a small edit, and click on the <b>Write Doc</b> button.  Verify that a new file has appeared next to your original file, the new one with a <b>.bak</b> extension.</li></ul>
+<p><br>
+<br>
+</p>
+<div class="center"><div class="floatnone"><a href="http://www.science.smith.edu/dftwiki/index.php/File:PyQt5_2_11.png" class="image"><img alt="PyQt5 2 11.png" src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/500px-PyQt5_2_11.png" srcset="/dftwiki/images/3/39/PyQt5_2_11.png 1.5x" width="500" height="393"></a></div></div>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="Deploying">Deploying</span></h1>
+<p><br>
+</p>
+<ul><li> We use <a rel="nofollow" class="external text" href="https://pyinstaller.readthedocs.io/en/v3.3.1/usage.html">PyInstaller</a>
+ to generate a binary executable.  PyInstaller works well with PyQt5 and
+ will package all the required libraries in a single executable.</li></ul>
+<p><br>
+</p>
+<ul><li> Install PyInstaller for your platform.</li>
+<li> At the command prompt, find your way to the folder that contains our may python files:</li></ul>
+<pre>MyApp.py
+mainwindow.py
+model.py
+
+</pre>
+<p>and type:
+</p>
+<pre><b>pyinstaller --onefile MyApp.py</b>
+
+445 INFO: PyInstaller: 3.3.1
+445 INFO: Python: 3.5.4
+460 INFO: Platform: Darwin-16.7.0-x86_64-i386-64bit
+... (several output lines removed for the sake of simplicity)
+15080 INFO: Building EXE because out00-EXE.toc is non existent
+15080 INFO: Building EXE from out00-EXE.toc
+15080 INFO: Appending archive to EXE /Users/thiebaut/temp/PyQt5Tutorial2/dist/MyApp
+15118 INFO: Fixing EXE for code signing /Users/thiebaut/temp/PyQt5Tutorial2/dist/MyApp
+15123 INFO: Building EXE from out00-EXE.toc completed successfully.  
+
+</pre>
+<ul><li> Look in the <b>dist/</b> folder that <b>pyInstaller</b> created in your original folder.  There should be an executable file called <b>MyApp</b>.
+   Run it from the command line, or from a Window browser, and verify 
+that you get the same functionality you experienced in the Testing 
+section.</li></ul>
+<ul><li> If you want to share the app you just built with others, you only need to give them the <b>MyApp</b> file.  It is fairly large (183 MB in our case), and contains everything needed to run the code.</li></ul>
+<ul><li> Congrats!  You now have a simple skeleton for implementing a 
+simple MVC application in PyQt5, coding in Python, and using Qt for the 
+GUI.</li></ul>
+<p><br>
+</p><p><br>
+</p><p><br>
+</p><p><br>
+</p><p><br>
+</p><p><br>
+</p><p><br>
+</p><p><br>
+</p><p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20191008150204
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.039 seconds
+Real time usage: 0.412 seconds
+Preprocessor visited node count: 152/1000000
+Preprocessor generated node count: 278/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key dftwiki_new:pcache:idhash:5126-0!canonical and timestamp 20191008150203 and revision id 33937
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;oldid=33937">http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;oldid=33937</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://www.science.smith.edu/dftwiki/index.php/Special:Categories" class="new" title="Special:Categories (page does not exist)">Categories</a>: <ul><li><a href="http://www.science.smith.edu/dftwiki/index.php/Category:PyQt5" title="Category:PyQt5">PyQt5</a></li><li><a href="http://www.science.smith.edu/dftwiki/index.php/Category:Python" title="Category:Python">Python</a></li><li><a href="http://www.science.smith.edu/dftwiki/index.php/Category:Qt5" title="Category:Qt5">Qt5</a></li><li><a href="http://www.science.smith.edu/dftwiki/index.php/Category:C%2B%2B" title="Category:C++">C++</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="http://www.science.smith.edu/dftwiki/index.php?title=Special:UserLogin&amp;returnto=PyQt5+Tutorial%3A+A+Window+Application+with+File+IO" title="You are encouraged to log in; however, it is not mandatory [Alt+Shift+o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+														<li id="ca-nstab-main" class="selected"><span><a href="http://www.science.smith.edu/dftwiki/index.php/PyQt5_Tutorial:_A_Window_Application_with_File_IO" title="View the content page [Alt+Shift+c]" accesskey="c">Page</a></span></li>
+							<li id="ca-talk" class="new"><span><a href="http://www.science.smith.edu/dftwiki/index.php?title=Talk:PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Discussion</a></span></li>
+						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0">
+							<span>Variants</span>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+														<li id="ca-view" class="selected"><span><a href="http://www.science.smith.edu/dftwiki/index.php/PyQt5_Tutorial:_A_Window_Application_with_File_IO">Read</a></span></li>
+							<li id="ca-viewsource"><span><a href="http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;action=edit" title="This page is protected.
+You can view its source [Alt+Shift+e]" accesskey="e">View source</a></span></li>
+							<li id="ca-history" class="collapsible" style=""><span><a href="http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;action=history" title="Past revisions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li>
+						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0"><span>More</span></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/dftwiki/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search dftwiki" title="Search dftwiki [Alt+Shift+f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="http://www.science.smith.edu/dftwiki/index.php/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Home"><a href="http://www.science.smith.edu/dftwiki/index.php/Main_Page">Home</a></li><li id="n-Research"><a href="http://www.science.smith.edu/dftwiki/index.php/DT%27s_Research_Page">Research</a></li><li id="n-Classes"><a href="http://www.science.smith.edu/dftwiki/index.php/Classes">Classes</a></li><li id="n-Tutorials"><a href="http://www.science.smith.edu/dftwiki/index.php/Tutorials">Tutorials</a></li><li id="n-Wikis"><a href="http://cs.smith.edu/classwiki" rel="nofollow">Wikis</a></li><li id="n-Media"><a href="http://www.science.smith.edu/dftwiki/index.php/Misc">Media</a></li><li id="n-Contact"><a href="http://www.science.smith.edu/dftwiki/index.php/User:Thiebaut">Contact</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="http://www.science.smith.edu/dftwiki/index.php/Special:WhatLinksHere/PyQt5_Tutorial:_A_Window_Application_with_File_IO" title="A list of all wiki pages that link here [Alt+Shift+j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="http://www.science.smith.edu/dftwiki/index.php/Special:RecentChangesLinked/PyQt5_Tutorial:_A_Window_Application_with_File_IO" rel="nofollow" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="http://www.science.smith.edu/dftwiki/index.php/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;printable=yes" rel="alternate" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;oldid=33937" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="http://www.science.smith.edu/dftwiki/index.php?title=PyQt5_Tutorial:_A_Window_Application_with_File_IO&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last edited on 31 July 2018, at 19:25.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://www.science.smith.edu/dftwiki/index.php/Dftwiki:Privacy_policy" title="Dftwiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://www.science.smith.edu/dftwiki/index.php/Dftwiki:About" title="Dftwiki:About">About dftwiki</a></li>
+											<li id="footer-places-disclaimer"><a href="http://www.science.smith.edu/dftwiki/index.php/Dftwiki:General_disclaimer" title="Dftwiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="http://www.mediawiki.org/"><img src="PyQt5%20Tutorial%20%20A%20Window%20Application%20with%20File%20IO_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/dftwiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /dftwiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.039","walltime":"0.412","ppvisitednodes":{"value":152,"limit":1000000},"ppgeneratednodes":{"value":278,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20191008150204","ttl":86400,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":46});});</script>
+	
+
+<div style="display: none; font-size: 13px;" class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

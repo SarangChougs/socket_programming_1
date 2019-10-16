@@ -1,0 +1,24 @@
+    @pyqtSlot()
+    def connectButtonSlot(self):
+        pass
+
+    @pyqtSlot()
+    def disconnectButtonSlot(self):
+        pass
+
+    @pyqtSlot()
+    def browseButtonSlot(self):
+        pass
+
+    @pyqtSlot()
+    def sendButtonSlot(self):
+        pass
+
+    @pyqtSlot()
+    def viewButtonSlot(self):
+        pass
+
+    @pyqtSlot()     
+    def returnPressedSlot(self):
+        pass
+

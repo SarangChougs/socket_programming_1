@@ -6,7 +6,7 @@ import threading
 import os
 
 #the function to return a requested file
-def RetrFile(name, sock):
+def RetrFile(sock):
     #receiving the filename from the client
     filename = sock.recv(1024).decode('UTF-8')
     try:
@@ -39,8 +39,9 @@ def Main():
     while True:
         c,addr = s.accept()
         print("Client connected <" + str(addr) + ">")
-        t = threading.Thread(target = RetrFile,args = ('retrThread',c))
-        t.start()
+        RetrFile(c)
+        # t = threading.Thread(target = RetrFile,args = ('retrThread',c))
+        # t.start()
     s.close()
 
 if __name__ == "__main__":

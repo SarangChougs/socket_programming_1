@@ -2,11 +2,9 @@
 # code used from youtube link: https://www.youtube.com/watch?v=LJTaPaFGmM4
 
 import socket
-# from progress.bar import Bar
-# from time import sleep
 
 def Main():
-    host = socket.gethostname()
+    host = '127.0.0.1'
     port = 5000
 
     s = socket.socket()
@@ -26,7 +24,7 @@ def Main():
             filesize = int(data[9:])
             message = input("File Exists. "+str(filesize)+' bytes, download? (Y/N)? ->')
             #if Y then begin download
-            if message == 'Y':
+            if message == 'Y'or'y':
                 print("Downloading started...")
                 s.send(bytes('OK','UTF-8'))
                 #create a file  with prefix 'new_ ' to save the incoming data
@@ -41,11 +39,6 @@ def Main():
                     totalRecv += len(data)
                     f.write(data)
                     received = (totalRecv/filesize)*100
-                    # with Bar('Downloading...') as bar:
-                    #     for i in range(filesize):
-                    #         #sleep(0.02)
-                    #         bar.next()
-                    # print("%.2f"%received + " % completed.")
                 print("Download Complete!")
         else:
              print("File does not Exist!")
