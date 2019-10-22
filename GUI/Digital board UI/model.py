@@ -49,7 +49,7 @@ class Model:
             
     def getFileName( self ):
         '''
-        Returns the name of the file name member.
+        Returns the file name.
         '''
         return self.fileName
 
@@ -66,16 +66,21 @@ class Model:
         '''
         pass
 
-    def connectToServer( self,serverIp,serverPort):
+    def connectToServer( self,serverIp,serverPort ):
         ''' 
         Connects the client to the requested Server...
         '''
         self.ip = serverIp
         self.port = serverPort
+        try :
+            s = socket.socket()
+            s.connect((self.ip,self.port))
+        except Exception as e:
+            return e
 
-        s = socket.socket()
-        s.connect((self.ip,self.port))
-
-    def disconnetFromServer( self, server ):
-        server.close()
+    def disconnetFromServer( self,server ):
+        try:
+            server.close()
+        except Exception as e:
+            return e
 
