@@ -19,6 +19,7 @@ class MainWindowUIClass( Ui_MainWindow ):
         '''Initialize super class'''
         super().__init__()
         self.model = Model() #creating the model class reference
+        self.fileName = self.model.getFileName()
 
     def setupUi( self,MW ):
         '''Setup the UI of the super class ,and add here code that relates to 
@@ -29,20 +30,20 @@ class MainWindowUIClass( Ui_MainWindow ):
         self.splitter.setSizes([300,0])
 
     #A method to print the debug info in the debug window
-    def debugPrint(self, msg):
+    def debugPrint(self,msg):
         '''print the message in the text box at the bottom of the splitter'''
         self.debugWindow.append(msg)
 
     # a method to clear all the text fields once an action is performed
-    def updateAll(self):
-        '''Updates the widgets whenever an interaction happens.
-        Typically some interaction takes place, the UI responds and informs
-        the model of the change. 
-        Then this method is called, pulling from the model information that is 
-        updated in the GUI
-        '''
-        #set the filepath textbox to the filename choosen or entered
-        self.filePath.setText(self.model.getFileName())
+    # def updateAll(self):
+    #     '''Updates the widgets whenever an interaction happens.
+    #     Typically some interaction takes place, the UI responds and informs
+    #     the model of the change. 
+    #     Then this method is called, pulling from the model information that is 
+    #     updated in the GUI
+    #     '''
+    #     #set the filepath textbox to the filename choosen or entered
+    #     self.filePath.setText(self.model.getFileName())
 
     '''Defining slots declared in the clientSide UI file'''
 
@@ -54,7 +55,7 @@ class MainWindowUIClass( Ui_MainWindow ):
         #else diplay a pop window
         if self.model.isValid(fileName):
             self.model.setFileName( self.filePath.text() )
-            self.updateAll()
+            self.filePath.repaint()
         else:
             m = QtWidgets.QMessageBox()
             m.setText("Invalid file name!\n" + fileName)
@@ -63,7 +64,7 @@ class MainWindowUIClass( Ui_MainWindow ):
             m.setDefaultButton(QtWidgets.QMessageBox.Cancel)
             ret = m.exec_()
             self.filePath.setText("")
-            self.updateAll()
+            self.filePath.repaint()
             self.debugPrint("Invalid file name provided " + fileName)
         self.debugPrint("RETURN key pressed in FilePath widget")
 
@@ -71,13 +72,11 @@ class MainWindowUIClass( Ui_MainWindow ):
         '''Called when the user press the browse button'''
         #getting the file name from the file Explorer
         self.debugPrint("Browse button pressed")
-        options = QtWidgets.QFileDialog.Options()
-        options |= QtWidgets.QFileDialog.DontUseNativeDialog
-        fileName, _ = QtWidgets.QFileDialog.getOpenFileName(None,"QFileDialog.getOpenFileName()","","All Files (*);;Python Files (*.py)",options = options)
-        if fileName:
-            self.debugPrint( "setting file name: "+ fileName)
-            self.model.setFileName(fileName)
-            self.updateAll()
+        self.filename,_ = QtWidgets.QFileDialog.getOpenFileName()
+        if self.fileName:
+            self.debugPrint( "setting file name: "+ self.fileName)
+            self.model.setFileName(self.fileName)
+            self.filePath.repaint()
 
 def main():
     """
