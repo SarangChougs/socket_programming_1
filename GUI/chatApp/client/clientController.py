@@ -1,4 +1,4 @@
-from client.clientUI import Ui_MainWindow
+from clientUI import Ui_MainWindow
 from PyQt5 import QtWidgets
 import sys
 
@@ -6,7 +6,7 @@ class controller(QtWidgets.QMainWindow):
 
     def __init__(self):
         super(controller,self).__init__()
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_MainWindow
         self.ui.setupUi(self)
         self.ui.BtnConnect.clicked.connect(self.BtnConnectClicked)
         self.ui.BtnSend.clicked.connect(self.BtnSendClicked)
