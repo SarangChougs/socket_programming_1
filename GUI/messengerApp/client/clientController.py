@@ -1,4 +1,4 @@
-from chatWindowUI import Ui_MainWindow
+from client.clientUI import Ui_MainWindow
 from PyQt5 import QtWidgets
 import sys
 
@@ -11,6 +11,7 @@ class controller(QtWidgets.QMainWindow):
         self.ui.BtnConnect.clicked.connect(self.BtnConnectClicked)
         self.ui.BtnSend.clicked.connect(self.BtnSendClicked)
 
+    '''Defining the functions for signals'''
     def BtnConnectClicked(self):
         self.ui.TextDebug.append("Connect Button Clicked")
 
