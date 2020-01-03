@@ -9,23 +9,31 @@ class Model():
     def __init__(self,ip,port):
         self.ip = ip
         self.port = port
-        self.clientStatus = 'Not Started'
-        self.connectionStatus = 'Not Connected'
+        self.clientStatus = False
+        self.connectionStatus = False
 
     def startClient(self):
         self.s = socket.socket()
-        self.clientStatus = 'Client started'
+        self.clientStatus = True
         print(self.clientStatus)
 
     def connectToServer(self):
         try:
             self.s.connect((self.ip,self.port))
-            self.connectionStatus = f'Connected to server (\'{self.ip}\',{self.port})'
-            print(">>" + self.connectionStatus)
+            self.connectionStatus = True
+            print(">>Connection = " + self.connectionStatus)
         except ConnectionRefusedError:
             print("Server Not Started.\nPlease start Server first.")
 
+    def sendMssg(self, mssg):
+        if self.connectionStatus:
+            self.mssg = mssg
+            self.s.sendall(bytes(mssg,'UTF-8'))
+        else:
+            return
 
+    def recvMssg(self):
+        return self.s.recv(1024).decode()
 
 def main():
     m = Model('127.0.0.1',1234)

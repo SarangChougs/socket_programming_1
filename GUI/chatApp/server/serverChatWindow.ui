@@ -103,18 +103,6 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="BtnStop">
-          <property name="font">
-           <font>
-            <pointsize>15</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Stop</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </item>
      </layout>

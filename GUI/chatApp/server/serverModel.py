@@ -14,25 +14,8 @@ class Model():
         self.connectionStatus = 'No Client connected'
 
     def startServer(self):
-        self.s.bind((self.ip,self.port))
-        self.s.listen(5)
+        self.s.bind((self.ip,self.port)) #binding the serverf to socket
+        self.s.listen(5)    #starting the server
         self.serverStatus = f'Server Started at (\'{self.ip}\',{self.port})'
         print(">>" + self.serverStatus)
-        # if self.connectionStatus == 'No Client connected':
-        #     print(">>Waiting for connection")
-        # self.c,self.addr = self.s.accept()
-        # if self.addr != '':
-        #     self.connectionStatus = f'Client connected - {self.addr}'
-        #     print(self.connectionStatus)
 
-    def stopServer(self):
-        self.s.close()
-        self.serverStatus = 'Server Stopped'
-
-# def main():
-#     m = Model('127.0.0.1',1234)
-#     m.startServer()
-
-
-# if __name__ == "__main__":
-#     main()

@@ -21,7 +21,7 @@ def bank():
     print("3. Break")
 
 
-bank()
+ban1k()
 choice = int(input())
 
 while(True):
